@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ---- เหมือนเดิมทั้งหมด (ย่อมานิดหน่อย) ---- */
+        /* ============ 🎨 แก้ไขสีธีมได้ที่นี่ ============ */
         :root {
             --bg-pastel-pink: #ffe0ec; --bg-pastel-mint: #d4f5e2;
             --bg-pastel-sky: #d5f0f7; --bg-pastel-lavender: #ece3f8;
@@ -17,15 +17,21 @@
             --border-color: #f3edf7;
             --pastel-pink: #f0a6ca; --pastel-sky: #a8d8ea; --pastel-mint: #b5ead7;
         }
-        @keyframes gradientBG {
-            0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             background: linear-gradient(-45deg, var(--bg-pastel-pink), var(--bg-pastel-mint), var(--bg-pastel-sky), var(--bg-pastel-lavender));
             background-size: 400% 400%;
             animation: gradientBG 18s ease infinite;
             font-family: 'Prompt', sans-serif;
-            margin: 0; min-height: 100vh; position: relative;
+            min-height: 100vh;
+            position: relative;
+            margin: 0;
+            padding: 20px;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         .bunny-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
         .floating-emote {
@@ -41,13 +47,16 @@
             82% { opacity: 0.6; }
             100% { transform: translateY(-108vh) rotate(30deg); opacity: 0; }
         }
-        .page-content { display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; padding: 30px 20px; position: relative; z-index: 1; }
+        .page-content {
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            min-height: 100vh; position: relative; z-index: 1;
+        }
         @keyframes popInAndFloat {
             0% { opacity: 0; transform: translateY(50px) scale(0.9); }
             20% { opacity: 1; transform: translateY(0) scale(1); }
         }
         @keyframes floatCard {
-            0%,100% { transform: translateY(0px); box-shadow: 0 20px 40px rgba(200,160,210,0.2); }
+            0%, 100% { transform: translateY(0px); box-shadow: 0 20px 40px rgba(200,160,210,0.2); }
             50% { transform: translateY(-12px); box-shadow: 0 30px 50px rgba(200,160,210,0.3); }
         }
         .card {
@@ -67,10 +76,10 @@
         .content { padding: 24px; }
         @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
         .fade-item { opacity: 0; transform: translateY(15px); animation: fadeUp 0.6s forwards; }
-        .delay-1{animation-delay:0.2s}.delay-2{animation-delay:0.3s}.delay-3{animation-delay:0.4s}.delay-4{animation-delay:0.5s}.delay-5{animation-delay:0.6s}.delay-6{animation-delay:0.7s}
+        .delay-1 { animation-delay: 0.2s; } .delay-2 { animation-delay: 0.3s; } .delay-3 { animation-delay: 0.4s; } .delay-4 { animation-delay: 0.5s; } .delay-5 { animation-delay: 0.6s; } .delay-6 { animation-delay: 0.7s; }
         .header-row { display: flex; justify-content: space-between; align-items: flex-end; margin-top: -75px; margin-bottom: 16px; }
         .avatar-container { position: relative; width: 110px; height: 110px; }
-        @keyframes floatAvatar { 0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)} }
+        @keyframes floatAvatar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
         .avatar { width: 100%; height: 100%; border-radius: 30px; border: 6px solid var(--card-bg); object-fit: cover; background-color: #ffe0ec; animation: floatAvatar 4s ease-in-out infinite; will-change: transform; }
         .status-indicator { position: absolute; bottom: 2px; right: -2px; width: 24px; height: 24px; background-color: #77dd77; border-radius: 50%; border: 4px solid var(--card-bg); box-shadow: 0 0 12px rgba(119,221,119,0.5); }
         .social-icons { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; margin-bottom: 12px; max-width: 250px; }
@@ -92,15 +101,15 @@
         .widget-box { background: var(--widget-bg); border: 1px solid var(--border-color); border-radius: 18px; padding: 16px; transition: all 0.3s; will-change: transform; }
         .widget-box:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 20px rgba(0,0,0,0.04); border-color: #e8dfef; }
         .widget-title { font-size: 12px; color: var(--text-muted); font-weight: 700; text-transform: uppercase; display: flex; align-items: center; gap: 6px; margin-bottom: 12px; letter-spacing: 0.5px; }
-        .time-display,.gh-stat-value { font-family: 'Syncopate', sans-serif; font-size: 22px; font-weight: 700; color: #6d5d8b; margin-bottom: 6px; }
-        .date-display,.gh-stat-label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+        .time-display, .gh-stat-value { font-family: 'Syncopate', sans-serif; font-size: 22px; font-weight: 700; color: #6d5d8b; margin-bottom: 6px; }
+        .date-display, .gh-stat-label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
         .weather-content { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
         .temp { font-family: 'Syncopate', sans-serif; font-size: 28px; font-weight: 700; color: #3d3352; }
         .weather-desc { font-size: 13px; font-weight: 600; text-align: right; line-height: 1.2; color: #7a6e8a; }
         .weather-stats { display: flex; gap: 8px; }
         .stat-pill { background: #fff; border: 1px solid var(--border-color); padding: 6px 10px; border-radius: 8px; font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; font-weight: 600; }
         .section-header { font-size: 13px; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; margin-top: 20px; }
-        @keyframes bounceIcon { 0%{transform:translateY(0)}100%{transform:translateY(-4px)} }
+        @keyframes bounceIcon { 0% { transform: translateY(0); } 100% { transform: translateY(-4px); } }
         .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
         .tech-stack img { height: 28px; border-radius: 6px; animation: bounceIcon 2s infinite alternate; will-change: transform; }
         .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
@@ -114,6 +123,7 @@
         .footer { text-align: center; font-size: 12px; color: #fff; font-weight: 600; margin-top: 30px; letter-spacing: 1px; text-shadow: 0 1px 4px rgba(0,0,0,0.15); }
         #toast { position: fixed; top: -50px; left: 50%; transform: translateX(-50%); background: var(--pastel-pink); color: white; padding: 14px 28px; border-radius: 30px; font-size: 15px; font-weight: 600; box-shadow: 0 10px 20px rgba(240,166,202,0.5); transition: 0.4s; z-index: 1000; }
         #toast.show { top: 30px; }
+
         @media (max-width: 500px) {
             .card { max-width: 95vw; border-radius: 26px; }
             .header-row { flex-direction: column; align-items: center; gap: 14px; margin-top: -60px; }
@@ -126,41 +136,57 @@
     </style>
 </head>
 <body>
+
     <div class="bunny-bg" id="bunnyBg"></div>
     <div id="toast"><i class="fas fa-heart"></i> Copied to clipboard!</div>
+
     <div class="page-content">
         <div class="card">
             <div class="banner"><div class="moon"></div></div>
             <div class="content">
+                <!-- ============ 🔧 ส่วนหัว: รูปโปรไฟล์และโซเชียล ============ -->
                 <div class="header-row fade-item delay-1">
                     <div class="avatar-container">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=BunnyLover" alt="Avatar" class="avatar">
+                        <!-- 🔧 เปลี่ยนรูปโปรไฟล์: แก้ src เป็น URL รูปของคุณ -->
+                        <img src="https://cdn.discordapp.com/avatars/241205969302978560/a382f0e92a7ab41aac2c4e721e029ffa.png?size=1024" alt="Avatar" class="avatar">
                         <div class="status-indicator"></div>
                     </div>
                     <div class="social-icons">
-                        <a href="#" class="social-btn"><i class="fab fa-github"></i></a>
-                        <a href="https://discord.gg/Dg7Fm5CNVG" class="social-btn"><i class="fab fa-discord"></i></a>
+                        <!-- 🔧 เปลี่ยนลิงก์โซเชียล: แก้ href ของแต่ละปุ่ม -->
+                        <a href="https://github.com/xcokexz" class="social-btn"><i class="fab fa-github"></i></a>
+                        <a href="https://discord.gg/uEa7NqjUYF" class="social-btn"><i class="fab fa-discord"></i></a>
                         <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
                         <a href="#" class="social-btn"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
+
+                <!-- 🔧 ข้อความสถานะเล็ก (ใต้แถบโซเชียล) -->
                 <div class="custom-status-bubble fade-item delay-1">
                     <span>🐰</span><span>Always hopping around! 🥕</span>
                 </div>
+
+                <!-- ============ 🔧 ชื่อ, Username, Bio ============ -->
                 <div class="fade-item delay-2">
-                    <h1 class="name">Theerasak 🐰 <i class="fas fa-certificate" style="color:var(--accent-sky); font-size:18px;"></i></h1>
-                    <p class="username" onclick="copyUsername()">@sushi__12528 <i class="far fa-copy" style="font-size:13px;"></i></p>
+                    <!-- 🔧 เปลี่ยนชื่อจริงและอิโมจิ -->
+                    <h1 class="name">Alie🐰 <i class="fas fa-certificate" style="color:var(--accent-sky); font-size:18px;"></i></h1>
+                    <!-- 🔧 เปลี่ยน username (@xaliex) และอย่าลืมแก้ใน JavaScript ฟังก์ชัน copyUsername() -->
+                    <p class="username" onclick="copyUsername()">@xaliex <i class="far fa-copy" style="font-size:13px;"></i></p>
+                    <!-- 🔧 เปลี่ยน bio ของคุณ (ใช้ <br> เพื่อขึ้นบรรทัดใหม่) -->
                     <p class="bio">🐰 Full-stack Developer ผู้รักกระต่าย<br>Coke, born in 1999, is a Bangkok-based professional and technology enthusiast. Characterized by an INTJ-T personality type, he approaches his diverse interests with an analytical and strategic mindset. He has a profound passion for emerging technologies, actively exploring advancements in artificial intelligence and the digital gaming landscape.
 
-Beyond his technological pursuits, Coke is an avid cinephile and a dedicated archivist of pop culture memorabilia, maintaining a curated collection that features Pop Mart designer toys, alongside iconic Star Wars and Goku figures. In his leisure time, he is a strong supporter of the live entertainment scene, frequently attending major music festivals. Furthermore, he is a culinary enthusiast who appreciates a diverse range of gastronomy, with a particular preference for authentic Thai cuisine and Japanese specialties such as sushi and shabu-shabu. ✨🥕</p>
+Beyond his technological pursuits, Coke is an avid cinephile and a dedicated archivist of pop culture memorabilia, maintaining a curated collection that features Pop Mart designer toys, alongside iconic Star Wars and Goku figures. In his leisure time, he is a strong supporter of the live entertainment scene, frequently attending major music festivals. Furthermore, he is a culinary enthusiast who appreciates a diverse range of gastronomy, with a particular preference for authentic Thai cuisine and Japanese specialties such as sushi and shabu-shabu.<br>เติมความสดใสให้ทุกโปรเจกต์เหมือนทุ่งดอกไม้ในฝัน ✨🥕</p>
                 </div>
+
+                <!-- ============ Badges ============ -->
                 <div class="badges fade-item delay-3">
                     <div class="badge dev"><i class="fas fa-code"></i> DEVELOPER</div>
                     <div class="badge status"><span class="dot-small"></span> ONLINE</div>
                     <div class="badge member"><i class="fas fa-star"></i> MEMBER</div>
                 </div>
+
+                <!-- ============ 🔧 Widgets: นาฬิกา, สภาพอากาศ, GitHub Stats ============ -->
                 <div class="widgets fade-item delay-4">
                     <div class="widget-box">
                         <div class="widget-title"><i class="fas fa-clock dot"></i> LOCAL TIME</div>
@@ -169,6 +195,7 @@ Beyond his technological pursuits, Coke is an avid cinephile and a dedicated arc
                     </div>
                     <div class="widget-box">
                         <div class="widget-title"><i class="fas fa-map-marker-alt pin"></i> BANGKOK, TH</div>
+                        <!-- 🔧 สภาพอากาศ (ค่าคงที่): เปลี่ยนอุณหภูมิ, ความชื้น, ลม ได้ตรงนี้ -->
                         <div class="weather-content">
                             <div class="temp">29°</div>
                             <div class="weather-desc">Partly<br>Cloudy</div>
@@ -179,30 +206,42 @@ Beyond his technological pursuits, Coke is an avid cinephile and a dedicated arc
                         </div>
                     </div>
                     <div class="widget-box" style="grid-column:span 2; display:flex; justify-content:space-around; padding:14px;">
-                        <div><div class="gh-stat-value">12</div><div class="gh-stat-label"><i class="fas fa-book-open"></i> Repos</div></div>
+                        <!-- 🔧 GitHub stats: เปลี่ยนตัวเลข Repos และ Followers -->
+                        <div><div class="gh-stat-value">789</div><div class="gh-stat-label"><i class="fas fa-book-open"></i> Repos</div></div>
                         <div style="width:1px; background:#eee;"></div>
-                        <div><div class="gh-stat-value">89</div><div class="gh-stat-label"><i class="fas fa-users"></i> Followers</div></div>
+                        <div><div class="gh-stat-value">39,199</div><div class="gh-stat-label"><i class="fas fa-users"></i> Followers</div></div>
                     </div>
                 </div>
+
+                <!-- ============ 🔧 Tech Stack ============ -->
                 <div class="fade-item delay-5">
                     <div class="section-header"><i class="fas fa-laptop-code dot"></i> TECH STACK</div>
                     <div class="tech-stack">
+                        <!-- 🔧 เพิ่ม/ลบรูป badge เทคโนโลยี -->
                         <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white">
                         <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white">
                         <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black">
                         <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white">
                         <img src="https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white">
                     </div>
+
+                    <!-- ============ 🔧 Portfolio ============ -->
                     <div class="section-header"><i class="fas fa-folder-open" style="color:var(--pastel-pink)"></i> PORTFOLIO</div>
                     <div class="portfolio-grid">
-                        <a href="#" class="portfolio-item"><img src="https://picsum.photos/seed/festival/500/300"><div class="portfolio-overlay">Festival Ticket App</div></a>
-                        <a href="#" class="portfolio-item"><img src="https://picsum.photos/seed/arttoy/500/300"><div class="portfolio-overlay">Art Toy Tracker</div></a>
+                        <!-- 🔧 แก้ลิงก์ href และ src ของรูป พร้อมชื่อโปรเจกต์ -->
+                        <a href="#" class="portfolio-item"><img src="https://media.discordapp.net/attachments/1476947789857685702/1508012351549476885/image.png?ex=6a1d37f2&is=6a1be672&hm=31572303bfcf8721a95191f0bd44705071a786d44c126f39ac59c9e199dbabda&=&format=webp&quality=lossless&width=1059&height=960"><div class="portfolio-overlay">Festival Ticket App</div></a>
+                        <a href="#" class="portfolio-item"><img src="https://media.discordapp.net/attachments/1476947789857685702/1507643242022178907/image.png?ex=6a1d31af&is=6a1be02f&hm=453399e9f3272d6595018b022a05a1b18a92f33ac639c5700c3777bd32697fa7&=&format=webp&quality=lossless&width=698&height=856"><div class="portfolio-overlay">Art Toy Tracker</div></a>
                     </div>
                 </div>
+
+                <!-- ============ 🔧 Spotify และ Activity ============ -->
                 <div class="fade-item delay-6">
                     <div class="section-header"><i class="fab fa-spotify" style="color:#1db954;"></i> MY PLAYLIST</div>
+                    <!-- 🔧 เปลี่ยน Spotify playlist: ใส่ embed link ของคุณ -->
                     <iframe style="border-radius:16px; margin-bottom:20px;" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M" width="100%" height="152" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
                     <div class="section-header"><i class="fas fa-gamepad" style="color:#ffadad;"></i> CURRENT ACTIVITY</div>
+                    <!-- 🔧 เปลี่ยนกิจกรรม: แก้ชื่อเกมและชื่อผู้ใช้ -->
                     <div class="activity-box">
                         <div style="display:flex; align-items:center; gap:14px; width:100%; text-align:left;">
                             <div style="width:75px; height:75px; background:var(--pastel-pink); color:white; border-radius:14px; display:flex; justify-content:center; align-items:center; font-size:32px;">🎮</div>
@@ -218,10 +257,12 @@ Beyond his technological pursuits, Coke is an avid cinephile and a dedicated arc
         </div>
         <div class="footer">🐰 BUNNY PROFILE • ALWAYS ONLINE</div>
     </div>
+
     <script>
-        // สร้างกระต่ายลอย
+        // สร้างกระต่ายลอย (แก้ไขอีโมจิได้ใน array emojis)
         (function createBunnies() {
             const bg = document.getElementById('bunnyBg');
+            // 🔧 เปลี่ยนชุดอีโมจิกระต่าย/แครอท
             const emojis = ['🐰','🐇','🥕','🐰','🐇','🥕','🌸','🐰','🐇','🥕','💮','🐰','🐇','🥕','🌸'];
             for (let i=0; i<20; i++) {
                 const span = document.createElement('span');
@@ -234,12 +275,16 @@ Beyond his technological pursuits, Coke is an avid cinephile and a dedicated arc
                 bg.appendChild(span);
             }
         })();
+
+        // 🔧 ฟังก์ชันคัดลอก username: เปลี่ยนข้อความในนี้ให้ตรงกับ username ที่แสดง
         function copyUsername() {
-            navigator.clipboard.writeText("@sushi__12528");
+            navigator.clipboard.writeText("@xaliex");
             const t = document.getElementById('toast');
             t.classList.add('show');
             setTimeout(()=>t.classList.remove('show'),2500);
         }
+
+        // นาฬิกา (ไม่ต้องแก้)
         function updateClock() {
             const now = new Date();
             document.getElementById('time').innerText = now.toLocaleTimeString('en-GB',{hour12:false});
